@@ -12,7 +12,7 @@ function NavBar(){
       
        }
        const ToggleBar=()=>{
-        setIsMobile(!ismobile);
+        setIsMobile(!isMobile);
        };
       
        
