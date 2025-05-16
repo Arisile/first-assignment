@@ -1,23 +1,38 @@
 
 import './App.css'
-import Homepage from './pages/Homepage'
-import Footer from './component/footer'
-import NavBar from './component/NavBar'
-import User from './pages/user'
+
 import Login from './pages/Login'
+import { Route, Routes } from 'react-router-dom'
 import Register from './pages/register'
+import Datalogin from './pages/Datalogin'
+import DataNavBar from './component/DataNavBar'
+import Homepage from './pages/Homepage'
+import Product from './pages/Product'
+import DataContent from './component/DataContent'
+import FacebookPost from './component/FacebookPost'
+import Resource from './pages/Resource'
+
 
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-     <div>
-      {/* <Homepage/> */}
-      {/* <User/> */}
-      {/* <Login/> */}
-      <Register/>
-     </div>
+      <Routes>
+         <Route path="/" element={<Login/>}/> 
+        <Route path="homepage" element={<Homepage/>}/>
+         <Route path="reg" element={<Register/>}/>
+        <Route path="product" element={<Product/>}/> 
+        <Route path='Resource'element={<Resource/>}/>
+        {/* <Route path="/" element={<Datalogin/>}/>  
+        <Route path="DataNavBar" element={<DataNavBar/>}/>
+        <Route path='/datacontent' element={<DataContent/>}/> 
+       <Route path="/" element={<FacebookPost/>}/>
+         */}
+      </Routes>
+     
+    
+     
   )
    
   

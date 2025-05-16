@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const[surname,setSurname]=useState("")
@@ -8,6 +9,7 @@ const Register = () => {
       const[confirmpassword,setConfirmPassword]=useState("");
       const[showpassword,setShowPassword]=useState("")
 
+      const navigate=useNavigate()
       
     const Click=()=>{
         setShowPassword(!showpassword)
@@ -16,7 +18,7 @@ const Register = () => {
         e.preventDefault();
         if((surname,firstname,email,password,confirmpassword))
         {
-            alert("Successful")
+          navigate("/Hompage")
         }else{
             alert("Log in")
         }
@@ -82,7 +84,7 @@ const Register = () => {
                         Confirm Password
                     </label>
                     <input 
-                    type="ConfirmPassword" 
+                    type="Password" 
                     value={confirmpassword}
                     onChange={(e)=>setConfirmPassword(e.target.value)}
                     placeholder="ComfirmPassword"
@@ -93,12 +95,15 @@ const Register = () => {
                     Show Password
                     
                 </p>
+                
                 <button
                  type="submit"
                  className="w-96 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 pt-4 rounded-lg transition duration-200 mt-4"
                  >
                    Sign Up
                  </button>
+                
+                
             </form>
 
         </div>
