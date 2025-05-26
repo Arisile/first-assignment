@@ -5,14 +5,22 @@ import { TfiClose } from "react-icons/tfi";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Product from "../pages/Product";
-function NavBar(){
+import { useUser } from "../context/UserContext";
+
+
+const NavBar=({firstName})=>{
   // let Login=!true
   const [isLogin,setIsLogin]=useState(false);
   const [Mobile, setMobile]=useState(false);
+
+  // const {gender}=useUser();
+  // const isLogin=!!gender
        const Login =()=>{
         setIsLogin(true);
-      
+        
        }
+      
+
        const ToggleBar=()=>{
         setMobile(!Mobile);
        };
@@ -61,7 +69,9 @@ function NavBar(){
          </div>
         
          {isLogin ? (
-          <p className="font-bold text-xl">Hi Arisile</p>
+          <p className="font-bold text-xl">
+            Hi{firstName}!
+            </p>
          ) :(
           <div className=" lg:flex hidden gap-3 items-center">
             <Link to="/Login">
@@ -89,7 +99,7 @@ function NavBar(){
        </nav>
          
        {Mobile &&<nav className="absolute right-0 top-0 h-[90%] lg:hidden  w-[90%] p-6 text-xl">
-       <ul className="  font-extrabold text-2xl cursor-pointer space-y-8 top-6">
+       <ul className=" gap-10 font-extrabold text-2xl cursor-pointer space-y-8 top-6">
           <Link to="/Product">
           <li onClick={Product} className="hover:text-[#00a2ff] flex items-center gap-1">
                   Product<IoIosArrowDown />
@@ -102,7 +112,10 @@ function NavBar(){
                 <li className="hover:text-[#00a2ff] flex items-center gap-1">
                   Resources <IoIosArrowDown className="" />
                   </li>
-                <li className="hover:text-[#00a2ff]">Book a demo</li>
+                  <Link to="/PostPage">
+                  <li className="hover:text-[#00a2ff]">Book a demo</li>
+                  </Link>
+                
                 <Link to="/Resource">
                     <li className="hover:text-[#00a2ff]">Users</li>
                 </Link>

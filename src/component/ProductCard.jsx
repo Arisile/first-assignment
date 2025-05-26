@@ -33,7 +33,7 @@ const ProductCard = () => {
             <div className='bg-purple-500 text-black w-fit px-2 py-1 absolute top-0 left-1 '>
                 Nearest Seller
             </div>
-            <img className="size-[200px] m-auto" src={p.image} alt="image" />
+            <img className="size-[200px] m-auto" src={p.images} alt="image" />
         </div>
         <div className='flex flex-col px-2'>
             <h3 className='text-2xl font-bold pt-7 mb-3'>{p.title}</h3>

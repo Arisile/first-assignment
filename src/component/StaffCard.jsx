@@ -1,8 +1,14 @@
-import React from 'react'
+import Aos from 'aos'
+import React, { useEffect } from 'react'
+import "aos/dist/aos.css";
 
 const StaffCard = ({name,position,departement,image}) => {
+    useEffect(()=>{
+      Aos.init()
+    },[])
   return (
-    <section className="flex justify-between w-[70%] m-auto">
+   <div data-aos="fade-right" data-aos-duration="3000">
+ <section className="flex justify-between w-[70%] m-auto">
         <div className="max-w-xs bg-white rounded-xl shadow-md overflow-hidden m-4 h-80">
             <img src={image} alt="pic" className="w-full h-48 object-cover" />
 
@@ -13,6 +19,8 @@ const StaffCard = ({name,position,departement,image}) => {
             </div>
         </div>
     </section>
+    </div>
+   
   )
 }
 

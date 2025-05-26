@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
+import Homepage from "./Homepage";
 
 
-const Login = () => {;
+const Login = ({setfirstName,setUserEmail}) => {;
     const[username, setUsername]=useState("")
     const[password,setPassword]=useState("");
     const[showpassword,setShowPassword]=useState("");
@@ -22,6 +24,7 @@ const Login = () => {;
     
    
     const navigate=useNavigate()
+    // const {setGender} =useUser()
 
        const Verify=async(e)=>{
        
@@ -40,11 +43,13 @@ const Login = () => {;
          setTimeout(()=>{
           navigate("Homepage")
           
-         },5000);
+         },1000);
          
         
         //  alert(response.data.username)
-         console .log(response)
+         console .log(response);
+        setfirstName(response.data.firstName)
+        setUserEmail(response.data.email)
           console.log
           
         } catch (error) {
@@ -105,8 +110,8 @@ const Login = () => {;
              
             <p onClick={togglelist} className="cursor-pointer">show password</p>
           </div>
-          
-             <button onClick={Verify}
+          <Link to="/Homepage">
+           <button onClick={Verify}
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-200 flex justify-center"
           >
@@ -134,6 +139,8 @@ const Login = () => {;
      " Sign In"
     )}
           </button>
+          </Link>
+            
           
        
 

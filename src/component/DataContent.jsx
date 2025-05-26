@@ -1,6 +1,8 @@
 import React from 'react'
 
 const DataContent = () => {
+  
+  
   return (
     <section className="min-h-screen w-[900px] ml-60 ">
               <div>
@@ -28,6 +30,7 @@ const DataContent = () => {
          
         </div>
         <form>
+          
         <div className='mt-5 '>
                   <div>
                     
