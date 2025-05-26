@@ -18,7 +18,7 @@ function HeroSection(){
           <p className="font-bold lg:text-red-950 text-red-400 text-[14px]">
             ALL-IN-ONE MARKETIN SOFTWARE
             </p>
-            <div data-aos="zoom-in" data-aos-duration="3000">
+            <div data-aos="zoom-in" data-aos-duration="3000" data-aos-easing="linear">
                  <div>
                 <h1 className="font-bold lg:text-[62px] text-[14px] leading-tight">
                 Send emails,automate marketing,monetize content - in one place
