@@ -21,6 +21,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/Store'
 import Counter from './pages/Counter'
 import Todo from './pages/Todo'
+import Search from './pages/Search'
 
 
 
@@ -50,6 +51,7 @@ const[firstName,setfirstName]=useState("")
           <Route path='/DataNavBar' element={<DataNavBar/>}/>
           <Route path='/DataContent' element={<DataContent/>}/> 
           <Route path='/Todo' element={<Todo/>}/>
+         <Route path='Search'element={<Search/>}/>
           
       </Routes>
       {/* </UserProvider> */}

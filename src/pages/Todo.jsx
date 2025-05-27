@@ -16,6 +16,11 @@ export default function Todo() {
 const newTodos=todos.filter((_,i)=> i !==index);
 setTodos(newTodos)
     }
+    const toggleTodo=(index)=>{
+        const newTodos=[...todos];
+        newTodos[index].completed=!newTodos[index].completed;
+        setTodos(newTodos)
+    }
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6 ">
       <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-md">
@@ -36,8 +41,15 @@ setTodos(newTodos)
         <ul className="space-y-2">
         {todos.map((todo,index)=>(
           <li
-           key={index} className="flex items-center justify-between px-4 py-2 border rounded-xl">
-            <span className="cursor-pointer flex-1">{todo.text}</span>
+           key={index} 
+           className={`flex items-center justify-between px-4 py-2 border rounded-xl${
+            todo.completed ?"bg-green-500 line-through":`bg-gray-50`
+           }`
+
+           }>
+            <span
+            onClick={()=>toggleTodo(index)}
+             className="cursor-pointer flex-1">{todo.text}</span>
             <button
             onClick={()=>deleteTodo(index)}
             className="ml-4 text-red-500 hover:text-red-700">✕</button>
