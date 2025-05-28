@@ -1,8 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
+const getInitialTodo=()=>{
+const saved=  localStorage.getItem("todos");
+return saved?JSON.parse(saved):[];
+}
 
 export default function Todo() {
-    const[todos,setTodos]=useState([]);
+    const[todos,setTodos]=useState(getInitialTodo);
     const[input,setInput]=useState("")
+
+    useEffect(()=>{
+      localStorage.setItem("todos",JSON.stringify(todos))
+    },[todos])
     const Name=()=>{
         alert(input)
     }
@@ -42,9 +52,9 @@ setTodos(newTodos)
         {todos.map((todo,index)=>(
           <li
            key={index} 
-           className={`flex items-center justify-between px-4 py-2 border rounded-xl${
-            todo.completed ?"bg-green-500 line-through":`bg-gray-50`
-           }`
+          className={`flex items-center justify-between px-4 py-2 border rounded-xl ${
+                todo.completed ? "bg-green-100 line-through" : "bg-gray-50"
+              }`
 
            }>
             <span
